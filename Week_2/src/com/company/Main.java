@@ -1,7 +1,12 @@
 package com.company;
-
-import com.company.project1.A;
-import com.company.project1.B;
+//Project2
+//import com.company.project1.A;
+//import com.company.project1.B;
+//import com.company.project1.C;
+//======================
+//Project3
+//import com.company.Project3.A;
+//import com.company.Project3.B;
 
 public class Main {
 
@@ -11,9 +16,27 @@ public class Main {
 //        obj1.m1();
 //        obj1.m2();
 //        System.out.println(obj1.m3());
-        B obj2 = new B();
-        obj2.m1();
+//        B obj2 = new B();
+//        obj2.m1();
 //        obj2.m2();
-        System.out.println(obj2.m3());
+//        System.out.println(obj2.m3());
+//        C obj3 = new C();
+//        obj3.m1();
+//        System.out.println(obj3.m2());
+//        System.out.println(obj3.m3());
+//        System.out.println(obj3.m4());
+//        System.out.println(obj3.m5());
+//        obj3.m6();
+        //=============================
+        //Project 3
+//        A obj1 = new A();
+//        obj1.m1();
+//        obj1.m2();
+//        System.out.println(obj1.m3());
+//        System.out.println(obj1.m4());
+//        B obj2 = new B();
+//        obj2.m2();
+//        obj2.m3();
+//        System.out.println(obj2.m4());
     }
 }
