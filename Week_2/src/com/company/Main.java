@@ -8,6 +8,8 @@ package com.company;
 //import com.company.Project3.A;
 //import com.company.Project3.B;
 
+import constuctors.Exercise3;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -38,6 +40,8 @@ public class Main {
 //        obj2.m2();
 //        obj2.m3();
 //        System.out.println(obj2.m4());
-
+        Exercise3 exercise3 = new Exercise3(5, 10);
+        exercise3.setX(6);
+        exercise3.m2();
     }
 }

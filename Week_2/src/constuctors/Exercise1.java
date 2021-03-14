@@ -1,8 +1,8 @@
-package com.company.usingConstructor;
+package constuctors;
 
-public class firstConstClass {
+public class Exercise1 {
     private int x;
-    public firstConstClass(){
+    public Exercise1(){
         System.out.println("Hello My Class");
     }
     public void m1(){
