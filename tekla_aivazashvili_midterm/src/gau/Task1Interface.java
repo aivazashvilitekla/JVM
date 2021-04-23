@@ -1,2 +1,7 @@
-package gau;public interface Task1Interface {
+package gau;
+
+public interface Task1Interface {
+    public void setAB();
+    public void setMArray();
+
 }
