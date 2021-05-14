@@ -10,6 +10,9 @@ public class Main {
 //        classwork7.addToList();
 //        classwork7.listDESC();
 //        classwork7.m14(131);
-        classwork7.m15(45, 10);
+//        classwork7.m15(45, 10);
+        FamilyBudget fb = new FamilyBudget();
+        fb.setMoney(4500);
+//        fb.income();
     }
 }
