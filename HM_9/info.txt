@@ -1,0 +1,9 @@
+----
+help - getting help
+----
+date - getting date
+----
+name - getting name
+----
+error - getting error
+----

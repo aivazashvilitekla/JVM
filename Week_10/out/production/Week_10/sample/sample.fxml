@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="269.0" prefWidth="335.0" styleClass="background" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+   <children>
+      <Button layoutX="149.0" layoutY="182.0" mnemonicParsing="false" onAction="#handleOnAnyButtonClicked" prefHeight="26.0" prefWidth="31.0" text="1" />
+      <Button layoutX="193.0" layoutY="182.0" mnemonicParsing="false" onAction="#handleOnAnyButtonClicked" prefHeight="26.0" prefWidth="31.0" text="2" />
+      <Button layoutX="239.0" layoutY="182.0" mnemonicParsing="false" onAction="#handleOnAnyButtonClicked" prefHeight="26.0" prefWidth="31.0" text="3" />
+      <Button layoutX="149.0" layoutY="145.0" mnemonicParsing="false" onAction="#handleOnAnyButtonClicked" prefHeight="26.0" prefWidth="31.0" text="4" />
+      <Button layoutX="193.0" layoutY="145.0" mnemonicParsing="false" onAction="#handleOnAnyButtonClicked" prefHeight="26.0" prefWidth="31.0" text="5" />
+      <Button layoutX="239.0" layoutY="145.0" mnemonicParsing="false" onAction="#handleOnAnyButtonClicked" prefHeight="26.0" prefWidth="31.0" text="6" />
+      <Button layoutX="149.0" layoutY="108.0" mnemonicParsing="false" onAction="#handleOnAnyButtonClicked" prefHeight="26.0" prefWidth="31.0" text="7" />
+      <Button layoutX="193.0" layoutY="108.0" mnemonicParsing="false" onAction="#handleOnAnyButtonClicked" prefHeight="26.0" prefWidth="31.0" text="8" />
+      <Button layoutX="239.0" layoutY="108.0" mnemonicParsing="false" onAction="#handleOnAnyButtonClicked" prefHeight="26.0" prefWidth="31.0" text="9" />
+      <TextField fx:id="display" alignment="BOTTOM_RIGHT" editable="false" layoutX="14.0" layoutY="30.0" prefHeight="35.0" prefWidth="299.0" styleClass="display" text="0">
+         <font>
+            <Font name="Lucida Console" size="20.0" />
+         </font>
+      </TextField>
+      <Button layoutX="239.0" layoutY="219.0" mnemonicParsing="false" onAction="#handleOnAnyButtonClicked" prefHeight="26.0" prefWidth="31.0" text="=" />
+      <Button layoutX="281.0" layoutY="220.0" mnemonicParsing="false" onAction="#handleOnAnyButtonClicked" prefHeight="26.0" prefWidth="31.0" text="＋" />
+      <Button layoutX="149.0" layoutY="219.0" mnemonicParsing="false" onAction="#handleOnAnyButtonClicked" prefHeight="26.0" prefWidth="31.0" text="0" />
+      <Button layoutX="281.0" layoutY="183.0" mnemonicParsing="false" onAction="#handleOnAnyButtonClicked" prefHeight="26.0" prefWidth="31.0" text="－" />
+      <Button layoutX="281.0" layoutY="146.0" mnemonicParsing="false" onAction="#handleOnAnyButtonClicked" prefHeight="26.0" prefWidth="31.0" styleClass="background" text="×" />
+      <Button layoutX="281.0" layoutY="109.0" mnemonicParsing="false" onAction="#handleOnAnyButtonClicked" prefHeight="26.0" prefWidth="31.0" styleClass="background" text="÷" />
+      <Button layoutX="281.0" layoutY="73.0" mnemonicParsing="false" onAction="#handleOnAnyButtonClicked" text="AC" />
+      <Button layoutX="195.0" layoutY="219.0" mnemonicParsing="false" onAction="#handleOnAnyButtonClicked" prefHeight="26.0" prefWidth="31.0" text="." />
+      <Button layoutX="239.0" layoutY="73.0" mnemonicParsing="false" onAction="#handleOnAnyButtonClicked" prefHeight="26.0" prefWidth="31.0" text="\%" />
+      <Button layoutX="193.0" layoutY="72.0" mnemonicParsing="false" onAction="#handleOnAnyButtonClicked" prefHeight="26.0" prefWidth="31.0" text=")" />
+      <Button layoutX="149.0" layoutY="72.0" mnemonicParsing="false" onAction="#handleOnAnyButtonClicked" prefHeight="26.0" prefWidth="31.0" text="(" />
+      <Button layoutX="101.0" layoutY="183.0" mnemonicParsing="false" onAction="#handleOnAnyButtonClicked" prefHeight="26.0" prefWidth="31.0" text="√" />
+      <Button layoutX="101.0" layoutY="146.0" mnemonicParsing="false" onAction="#handleOnAnyButtonClicked" prefHeight="26.0" prefWidth="31.0" text="log">
+         <font>
+            <Font size="10.0" />
+         </font></Button>
+      <Button layoutX="101.0" layoutY="109.0" mnemonicParsing="false" onAction="#handleOnAnyButtonClicked" prefHeight="26.0" prefWidth="31.0" text="ln" />
+      <Button layoutX="101.0" layoutY="220.0" mnemonicParsing="false" onAction="#handleOnAnyButtonClicked" prefHeight="26.0" prefWidth="31.0" text="^">
+         <font>
+            <Font size="9.0" />
+         </font></Button>
+      <Button layoutX="101.0" layoutY="73.0" mnemonicParsing="false" onAction="#handleOnAnyButtonClicked" prefHeight="26.0" prefWidth="31.0" text="!" />
+      <Button layoutX="58.0" layoutY="184.0" mnemonicParsing="false" onAction="#handleOnAnyButtonClicked" prefHeight="26.0" prefWidth="31.0" text="π" />
+      <Button layoutX="58.0" layoutY="147.0" mnemonicParsing="false" onAction="#handleOnAnyButtonClicked" prefHeight="26.0" prefWidth="31.0" text="cos">
+         <font>
+            <Font size="10.0" />
+         </font>
+      </Button>
+      <Button layoutX="58.0" layoutY="110.0" mnemonicParsing="false" onAction="#handleOnAnyButtonClicked" prefHeight="26.0" prefWidth="31.0" text="sin" />
+      <Button layoutX="58.0" layoutY="221.0" mnemonicParsing="false" onAction="#handleOnAnyButtonClicked" prefHeight="26.0" prefWidth="31.0" text="EXP" />
+      <Button layoutX="58.0" layoutY="74.0" mnemonicParsing="false" onAction="#handleOnAnyButtonClicked" prefHeight="26.0" prefWidth="31.0" />
+      <Button layoutX="15.0" layoutY="183.0" mnemonicParsing="false" onAction="#handleOnAnyButtonClicked" prefHeight="26.0" prefWidth="31.0" text="e" />
+      <Button layoutX="15.0" layoutY="146.0" mnemonicParsing="false" onAction="#handleOnAnyButtonClicked" prefHeight="26.0" prefWidth="31.0" text="π">
+         <font>
+            <Font size="10.0" />
+         </font>
+      </Button>
+      <Button layoutX="15.0" layoutY="109.0" mnemonicParsing="false" onAction="#handleOnAnyButtonClicked" prefHeight="26.0" prefWidth="31.0" text="lnv">
+         <font>
+            <Font size="10.0" />
+         </font>
+      </Button>
+      <Button layoutX="15.0" layoutY="220.0" mnemonicParsing="false" onAction="#handleOnAnyButtonClicked" prefHeight="26.0" prefWidth="31.0" text="Ans">
+         <font>
+            <Font size="10.0" />
+         </font>
+      </Button>
+      <Button layoutX="15.0" layoutY="73.0" mnemonicParsing="false" onAction="#handleOnAnyButtonClicked" prefHeight="26.0" prefWidth="31.0" text="Rad">
+         <font>
+            <Font size="10.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>
