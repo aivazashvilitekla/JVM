@@ -16,10 +16,6 @@ public class Server2 extends Thread{
                 socket = serverSocket.accept();
                 objectInputStream = new ObjectInputStream(socket.getInputStream());
                 message = (String) objectInputStream.readObject();
-//                System.out.println("msg - " + message);
-//                Scanner scanner = new Scanner(System.in);
-//                System.out.print("Server enter:");
-//                message = scanner.nextLine();
                 message = getText(message);
 //                System.out.println("mmmm:"+message);
 
@@ -71,9 +67,14 @@ public class Server2 extends Thread{
             String line ;
             while((line=br.readLine())!=null)
             {
-
-                if(line.substring(0,message.length()).equals(command)){
-//                    line2 = line.substring(message.length()+3);
+                if(message.equals("error")){
+                    if(line.substring(0, message.length()-1).equals("erro")){
+                        line2 = line.substring(message.length()+3);
+                    }
+                }else{
+                    if(line.substring(0,message.length()).equals(command)){
+                        line2 = line.substring(message.length()+3);
+                    }
                 }
             }
 

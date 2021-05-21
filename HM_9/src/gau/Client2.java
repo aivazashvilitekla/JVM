@@ -26,10 +26,10 @@ public class Client2 extends Thread{
                 message = (String) objectInputStream.readObject();
 //                System.out.println("Server:"+message);
 //                System.out.println(message1);
-//                if(message1.equals("bye")){
-//                    System.out.println(message1);
-//                    System.exit(0);
-//                }
+                if(message1.equals("bye")){
+                    System.out.println("Bye");
+                    System.exit(0);
+                }
             }
         } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();
