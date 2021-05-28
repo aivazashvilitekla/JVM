@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="974.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.StartPage">
+   <children>
+      <Button fx:id="btn_getInfo" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#getInfo" text="მონაცემების ნახვა" />
+      <Button fx:id="btn_add" layoutX="153.0" layoutY="14.0" mnemonicParsing="false" onAction="#addNew" text="დამატება" />
+      <Button fx:id="btn_edit" layoutX="239.0" layoutY="14.0" mnemonicParsing="false" onAction="#edit" text="რედაქტირება" />
+      <Button fx:id="btn_delete" layoutX="350.0" layoutY="14.0" mnemonicParsing="false" onAction="#delete" text="წაშლა" />
+      <TableView fx:id="table" layoutX="12.0" layoutY="94.0" prefHeight="291.0" prefWidth="949.0" />
+   </children>
+</AnchorPane>

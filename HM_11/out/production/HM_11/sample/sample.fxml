@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="616.0" prefWidth="600.0" style="-fx-background-color: GREY;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+   <children>
+      <Label layoutX="167.0" layoutY="12.0" text="(განცხადების შევსება) უძრავი ქონება">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font></Label>
+      <Line endX="67.0999755859375" endY="-5.7220458984375E-6" layoutX="91.0" layoutY="22.0" startX="-77.19999694824219" startY="-5.7220458984375E-6" />
+      <Line endX="-99.99998474121094" endY="577.4000244140625" layoutX="114.0" layoutY="23.0" startX="-100.0" />
+      <Line endX="-100.00006103515625" endY="578.4000244140625" layoutX="688.0" layoutY="23.0" startX="-100.0" />
+      <Line endX="67.0999755859375" endY="-5.7220458984375E-6" layoutX="520.0" layoutY="22.0" startX="-64.20001220703125" startY="-5.7220458984375E-6" />
+      <Line endX="477.79998779296875" layoutX="109.0" layoutY="601.0" startX="-95.20001220703125" startY="-5.7220458984375E-6" />
+      <AnchorPane layoutX="28.0" layoutY="39.0" prefHeight="546.0" prefWidth="546.0" style="-fx-background-color: WHITE;">
+         <children>
+            <Label layoutX="14.0" layoutY="14.0" text="განცხადების ფორმა:" textFill="#2ce229">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font></Label>
+            <Line endX="407.79998779296875" endY="-7.62939453125E-6" layoutX="101.0" layoutY="44.0" startX="-100.0" stroke="#9c9191" />
+            <Label layoutX="14.0" layoutY="54.0" text="გარიგების ტიპი:" />
+            <Label layoutX="14.0" layoutY="95.0" text="მდებარეობა:" />
+            <Label layoutX="14.0" layoutY="140.0" text="უბანი:" />
+            <Label layoutX="14.0" layoutY="182.0" text="ქონების ტიპი:" />
+            <Line endX="411.79998779296875" endY="-7.62939453125E-6" layoutX="97.0" layoutY="84.0" startX="-100.0" stroke="#9c9191" />
+            <Line endX="407.79998779296875" endY="-7.62939453125E-6" layoutX="101.0" layoutY="126.0" startX="-100.0" stroke="#9c9191" />
+            <Line endX="401.79998779296875" layoutX="102.0" layoutY="169.0" startX="-100.0" stroke="#9c9191" />
+            <Line endX="407.79998779296875" endY="-7.62939453125E-6" layoutX="99.0" layoutY="213.0" startX="-100.0" stroke="#9c9191" />
+            <Label layoutX="14.0" layoutY="222.0" prefWidth="78.0" text="ოთახების რაოდენობა:" wrapText="true" />
+            <RadioButton fx:id="rb1" layoutX="122.0" layoutY="231.0" mnemonicParsing="false" text="1">
+               <toggleGroup>
+                  <ToggleGroup fx:id="rbRooms" />
+               </toggleGroup></RadioButton>
+            <RadioButton fx:id="rb2" layoutX="165.0" layoutY="231.0" mnemonicParsing="false" text="1.5" toggleGroup="$rbRooms" />
+            <RadioButton fx:id="rb3" layoutX="215.0" layoutY="231.0" mnemonicParsing="false" text="2" toggleGroup="$rbRooms" />
+            <RadioButton fx:id="rb4" layoutX="255.0" layoutY="231.0" mnemonicParsing="false" text="2.5" toggleGroup="$rbRooms" />
+            <RadioButton fx:id="rb5" layoutX="301.0" layoutY="231.0" mnemonicParsing="false" text="3" toggleGroup="$rbRooms" />
+            <RadioButton fx:id="rb6" layoutX="336.0" layoutY="231.0" mnemonicParsing="false" text="4" toggleGroup="$rbRooms" />
+            <RadioButton fx:id="rb7" layoutX="372.0" layoutY="231.0" mnemonicParsing="false" text="5" toggleGroup="$rbRooms" />
+            <Line endX="400.79998779296875" layoutX="105.0" layoutY="267.0" startX="-104.99998474121094" stroke="#9c9191" />
+            <Label layoutX="13.0" layoutY="279.0" prefHeight="18.0" prefWidth="38.0" text="ფასი:" wrapText="true" />
+            <TextField fx:id="txtField_price" layoutX="50.0" layoutY="274.0" prefHeight="26.0" prefWidth="68.0" />
+            <Line endX="399.79998779296875" layoutX="110.0" layoutY="308.0" startX="-109.99998474121094" stroke="#9c9191" />
+            <Label layoutX="13.0" layoutY="320.0" text="საკონტაქტო ინფორმაცია" textFill="#0400cf">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label layoutX="13.0" layoutY="350.0" text="ელ.ფოსტა:" />
+            <Label layoutX="257.0" layoutY="350.0" text="მობილური:" />
+            <Line endX="395.79998779296875" layoutX="112.0" layoutY="378.0" startX="-109.99998474121094" stroke="#9c9191" />
+            <Label layoutX="13.0" layoutY="392.0" text="განცხადების ტექსტი" textFill="#0400cf">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <TextArea fx:id="txtArea_anText" layoutX="15.0" layoutY="416.0" prefHeight="76.0" prefWidth="461.0" />
+            <Button fx:id="btn_send" layoutX="15.0" layoutY="500.0" mnemonicParsing="false" onAction="#saveInfo" text="გაგზავნა" />
+            <TextField fx:id="textField_email" layoutX="91.0" layoutY="346.0" />
+            <TextField fx:id="textField_mobile" layoutX="339.0" layoutY="346.0" />
+            <ChoiceBox fx:id="choiceBox_dealType" layoutX="122.0" layoutY="50.0" prefWidth="150.0" />
+            <ChoiceBox fx:id="choiceBox_location" layoutX="122.0" layoutY="91.0" prefWidth="150.0" />
+            <ChoiceBox fx:id="choiceBox_district" layoutX="122.0" layoutY="136.0" prefWidth="150.0" />
+            <ChoiceBox fx:id="choiceBox_propertyType" layoutX="122.0" layoutY="178.0" prefWidth="150.0" />
+         </children></AnchorPane>
+   </children>
+</AnchorPane>
