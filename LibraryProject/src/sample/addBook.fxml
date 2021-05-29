@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="302.0" prefWidth="439.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.BookController">
+   <children>
+      <TextField fx:id="txtField_name" layoutX="14.0" layoutY="24.0" prefHeight="26.0" prefWidth="390.0" promptText="წიგნის დასახელება" />
+      <ComboBox fx:id="comboBox_author" editable="true" layoutX="14.0" layoutY="60.0" prefHeight="26.0" prefWidth="390.0" promptText="ავტორი" />
+      <TextArea fx:id="txtArea_desc" layoutX="14.0" layoutY="94.0" prefHeight="112.0" prefWidth="390.0" promptText="აღწერა" />
+      <TextField fx:id="txtField_pages" layoutX="14.0" layoutY="215.0" prefHeight="26.0" prefWidth="390.0" promptText="გვერდების რაოდენობა" />
+      <Button fx:id="btn_saveBook" layoutX="14.0" layoutY="249.0" mnemonicParsing="false" onAction="#save" text="შენახვა" />
+   </children>
+</AnchorPane>

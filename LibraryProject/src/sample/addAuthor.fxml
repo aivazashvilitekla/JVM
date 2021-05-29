@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="182.0" prefWidth="321.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.AuthorController">
+   <children>
+      <TextField fx:id="txtField_firstname" layoutX="14.0" layoutY="21.0" prefHeight="26.0" prefWidth="213.0" promptText="Firstname">
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets></TextField>
+      <DatePicker fx:id="dtPicker" layoutX="13.0" layoutY="67.0" prefHeight="35.0" prefWidth="214.0" promptText="Birthday" />
+      <Button fx:id="btn_saveAuthor" layoutX="13.0" layoutY="117.0" mnemonicParsing="false" onAction="#save" text="შენახვა" />
+   </children>
+</AnchorPane>
