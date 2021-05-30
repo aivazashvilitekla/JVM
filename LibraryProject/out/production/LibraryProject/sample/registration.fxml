@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="289.0" prefWidth="292.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.RegistrationController">
+   <children>
+      <Button fx:id="btn_signUp" layoutX="120.0" layoutY="212.0" mnemonicParsing="false" onAction="#save" text="Sign Up" />
+      <TextField fx:id="txtField_firstname" layoutX="72.0" layoutY="52.0" promptText="Firstname" />
+      <TextField fx:id="txtField_lastname" layoutX="72.0" layoutY="89.0" promptText="Lastname" />
+      <TextField fx:id="txtField_email" layoutX="72.0" layoutY="125.0" promptText="Email" />
+      <Label layoutX="94.0" layoutY="14.0" text="Registration">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <PasswordField fx:id="txtField_password" layoutX="72.0" layoutY="164.0" promptText="Password" />
+   </children>
+</AnchorPane>

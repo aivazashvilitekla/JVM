@@ -75,36 +75,44 @@ public class BookController extends Controller implements Initializable {
 
     @FXML
     private void save(){
+
         String name = txtField_name.getText();
         String author = comboBox_author.getValue();
         String desc = txtArea_desc.getText();
         String pages = txtField_pages.getText();
-        try {
-            Statement st = con.createStatement();
-            String preInsert;
-            if(id>=1){
-                preInsert = "UPDATE book SET name=?,authorID=(SELECT author.id FROM author WHERE author.firstname = '"+author+"') ,description=?, pages=? where id="+id;
-            }else {
-                preInsert="INSERT INTO book (name, authorID,description, pages) SELECT  ?,author.id, ?, ?" +
-                        "FROM    author WHERE author.firstname='"+author+"'";
+        if(name!="" & author!="" & pages!="" & desc!=""){
+            try {
+                Statement st = con.createStatement();
+                String preInsert;
+                if(id>=1){
+                    preInsert = "UPDATE book SET name=?,authorID=(SELECT author.id FROM author WHERE author.firstname = '"+author+"') ,description=?, pages=? where id="+id;
+                }else {
+                    preInsert="INSERT INTO book (name, authorID,description, pages) SELECT  ?,author.id, ?, ?" +
+                            "FROM    author WHERE author.firstname='"+author+"'";
+                }
+                PreparedStatement statement = con.prepareStatement(preInsert);
+                statement.setString(1, name);
+                statement.setString(2, desc);
+                statement.setString(3, pages);
+                statement.executeUpdate();
+                Alert a = new Alert(Alert.AlertType.CONFIRMATION);
+                a.setContentText("ჩანაწერი წარმატებით შეინახა");
+                a.setTitle("წარმატება");
+                a.show();
+                Stage stage = (Stage) btn_saveBook.getScene().getWindow();
+                stage.close();
+            }catch (SQLException throwables) {
+                Alert a = new Alert(Alert.AlertType.ERROR);
+                a.setContentText("მოხდა შეცდომა");
+                a.show();
+                throwables.printStackTrace();
             }
-            PreparedStatement statement = con.prepareStatement(preInsert);
-            statement.setString(1, name);
-            statement.setString(2, desc);
-            statement.setString(3, pages);
-            statement.executeUpdate();
-            Alert a = new Alert(Alert.AlertType.CONFIRMATION);
-            a.setContentText("ჩანაწერი წარმატებით შეინახა");
-            a.setTitle("წარმატება");
-            a.show();
-            Stage stage = (Stage) btn_saveBook.getScene().getWindow();
-            stage.close();
-        }catch (SQLException throwables) {
+        }else{
             Alert a = new Alert(Alert.AlertType.ERROR);
-            a.setContentText("მოხდა შეცდომა");
+            a.setContentText("გთხოვთ შეავსეთ ყველა ველი");
             a.show();
-            throwables.printStackTrace();
         }
+
     }
 
 }

@@ -1,7 +1,10 @@
 package sample;
 
+import javafx.beans.binding.BooleanBinding;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -28,11 +31,26 @@ public class Controller {
     Connection con;
     String SQL;
     ResultSet rs;
-
+    public static String access;
+    @FXML
+    public Button btn_get;
+    @FXML
+    protected Button btn_add;
+    @FXML
+    protected Button btn_edit;
+    @FXML
+    protected Button btn_delete;
     @FXML
     private TableView<?> table = new TableView<>();
     @FXML
     private void fillTable() {
+        if(access==null){
+            Alert a = new Alert(Alert.AlertType.ERROR);
+            a.setContentText("გაიარეთ რეგისტრაცია ან ავტორიზაცია მონაცემების სანახავად");
+            a.show();
+        }else {
+
+
         table.getColumns().clear();
         table.getItems().clear();
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
@@ -97,100 +115,144 @@ public class Controller {
                 throwables.printStackTrace();
             }
         }
+        }
     }
     @FXML
     private void addNew(){
-        if(editable==null){
-            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-            alert.setTitle("არჩევა");
-            alert.setHeaderText("გთხოვთ აირჩიეთ მონაცემი");
-            alert.setContentText("");
-            ButtonType buttonTypeOne = new ButtonType("წიგნები");
-            ButtonType buttonTypeTwo = new ButtonType("ავტორები");
-            ButtonType buttonTypeCancel = new ButtonType("Cancel", ButtonBar.ButtonData.CANCEL_CLOSE);
-            alert.getButtonTypes().setAll(buttonTypeOne, buttonTypeTwo,buttonTypeCancel);
+        if(access==null){
+            Alert a = new Alert(Alert.AlertType.ERROR);
+            a.setContentText("გაიარეთ რეგისტრაცია ან ავტორიზაცია მონაცემების სანახავად");
+            a.show();
+        }else {
+            if (editable == null) {
+                Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                alert.setTitle("არჩევა");
+                alert.setHeaderText("გთხოვთ აირჩიეთ მონაცემი");
+                alert.setContentText("");
+                ButtonType buttonTypeOne = new ButtonType("წიგნები");
+                ButtonType buttonTypeTwo = new ButtonType("ავტორები");
+                ButtonType buttonTypeCancel = new ButtonType("Cancel", ButtonBar.ButtonData.CANCEL_CLOSE);
+                alert.getButtonTypes().setAll(buttonTypeOne, buttonTypeTwo, buttonTypeCancel);
 
-            Optional<ButtonType> result = alert.showAndWait();
-            try {
-                Parent root = FXMLLoader.load(getClass().getResource("addBook.fxml"));
-                if (result.get() == buttonTypeOne){
-                    root = FXMLLoader.load(getClass().getResource("addBook.fxml"));
-                }else if (result.get() == buttonTypeTwo){
-                    root = FXMLLoader.load(getClass().getResource("addAuthor.fxml"));
+                Optional<ButtonType> result = alert.showAndWait();
+                try {
+                    Parent root = FXMLLoader.load(getClass().getResource("addBook.fxml"));
+                    if (result.get() == buttonTypeOne) {
+                        root = FXMLLoader.load(getClass().getResource("addBook.fxml"));
+                    } else if (result.get() == buttonTypeTwo) {
+                        root = FXMLLoader.load(getClass().getResource("addAuthor.fxml"));
+                    }
+
+                    Stage stage = new Stage();
+                    stage.setTitle("ფორმა");
+                    stage.setScene(new Scene(root));
+                    stage.show();
+                } catch (IOException e) {
+                    e.printStackTrace();
                 }
+            } else {
+                try {
+                    Parent root = FXMLLoader.load(getClass().getResource("addBook.fxml"));
 
-                Stage stage = new Stage();
-                stage.setTitle("ფორმა");
-                stage.setScene(new Scene(root));
-                stage.show();
-            }
-            catch (IOException e) {
-                e.printStackTrace();
-            }
-        }else{
-            try {
-                Parent root = FXMLLoader.load(getClass().getResource("addBook.fxml"));
-
-                if (editable.equals("book")){
-                    root = FXMLLoader.load(getClass().getResource("addBook.fxml"));
-                }else if (editable.equals("author")){
-                    root = FXMLLoader.load(getClass().getResource("addAuthor.fxml"));
+                    if (editable.equals("book")) {
+                        root = FXMLLoader.load(getClass().getResource("addBook.fxml"));
+                    } else if (editable.equals("author")) {
+                        root = FXMLLoader.load(getClass().getResource("addAuthor.fxml"));
+                    }
+                    Stage stage = new Stage();
+                    stage.setTitle("ფორმა");
+                    stage.setScene(new Scene(root));
+                    stage.show();
+                } catch (IOException e) {
+                    e.printStackTrace();
                 }
-                Stage stage = new Stage();
-                stage.setTitle("ფორმა");
-                stage.setScene(new Scene(root));
-                stage.show();
-            }
-            catch (IOException e) {
-                e.printStackTrace();
             }
         }
-
 
 
     }
     @FXML
     private void edit(){
-        if (editable.equals("book")){
-            Book r = (Book) table.getItems().get(table.getSelectionModel().getSelectedIndex());
-            id = r.id;
-        }else if (editable.equals("author")){
-            Author r = (Author) table.getItems().get(table.getSelectionModel().getSelectedIndex());
-            id = r.id;
+        if(access==null){
+            Alert a = new Alert(Alert.AlertType.ERROR);
+            a.setContentText("გაიარეთ რეგისტრაცია ან ავტორიზაცია მონაცამების სანახავად");
+            a.show();
+        }else {
+            if (editable.equals("book")) {
+                Book r = (Book) table.getItems().get(table.getSelectionModel().getSelectedIndex());
+                id = r.id;
+            } else if (editable.equals("author")) {
+                Author r = (Author) table.getItems().get(table.getSelectionModel().getSelectedIndex());
+                id = r.id;
+            }
+
+
+            addNew();
         }
-
-
-        addNew();
     }
     @FXML
     private void delete(){
-        if (editable.equals("book")){
-            Book r = (Book) table.getItems().get(table.getSelectionModel().getSelectedIndex());
-            id = r.id;
-            SQL = "delete from book where id = ?";
-        }else if (editable.equals("author")){
-            Author r = (Author) table.getItems().get(table.getSelectionModel().getSelectedIndex());
-            id = r.id;
-            SQL = "delete from author where id = ?";
-        }
-        if(id>=1){
+        if(access==null){
+            Alert a = new Alert(Alert.AlertType.ERROR);
+            a.setContentText("გაიარეთ რეგისტრაცია ან ავტორიზაცია მონაცამების სანახავად");
+            a.show();
+        }else {
+            if (editable.equals("book")) {
+                Book r = (Book) table.getItems().get(table.getSelectionModel().getSelectedIndex());
+                id = r.id;
+                SQL = "delete from book where id = ?";
+            } else if (editable.equals("author")) {
+                Author r = (Author) table.getItems().get(table.getSelectionModel().getSelectedIndex());
+                id = r.id;
+                SQL = "delete from author where id = ?";
+            }
+            if (id >= 1) {
 
-            try {
-                PreparedStatement preparedStmt = con.prepareStatement(SQL);
-                preparedStmt.setInt(1, id);
-                preparedStmt.execute();
-                Alert a = new Alert(Alert.AlertType.CONFIRMATION);
-                a.setContentText("ჩანაწერი წარმატებით წაიშალა");
-                a.setTitle("წარმატება");
-                a.show();
-            } catch (SQLException throwables) {
-                Alert a = new Alert(Alert.AlertType.ERROR);
-                a.setContentText("მოხდა შეცდომა");
-                a.setTitle("შეცდომა");
-                a.show();
-                throwables.printStackTrace();
+                try {
+                    PreparedStatement preparedStmt = con.prepareStatement(SQL);
+                    preparedStmt.setInt(1, id);
+                    preparedStmt.execute();
+                    Alert a = new Alert(Alert.AlertType.CONFIRMATION);
+                    a.setContentText("ჩანაწერი წარმატებით წაიშალა");
+                    a.setTitle("წარმატება");
+                    a.show();
+                } catch (SQLException throwables) {
+                    Alert a = new Alert(Alert.AlertType.ERROR);
+                    a.setContentText("მოხდა შეცდომა");
+                    a.setTitle("შეცდომა");
+                    a.show();
+                    throwables.printStackTrace();
 
+                }
             }
         }
     }
+    @FXML
+    private void register(){
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("registration.fxml"));
+            Stage stage = new Stage();
+            stage.setTitle("Registration");
+            stage.setScene(new Scene(root));
+            stage.show();
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    @FXML
+    private void loginForm(){
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("login.fxml"));
+            Stage stage = new Stage();
+            stage.setTitle("Login");
+            stage.setScene(new Scene(root));
+            stage.show();
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+
 }

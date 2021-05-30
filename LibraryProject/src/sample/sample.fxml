@@ -7,10 +7,11 @@
    <children>
       <Button fx:id="btn_edit" layoutX="261.0" layoutY="14.0" mnemonicParsing="false" onAction="#edit" text="რედაქტირება" />
       <Button fx:id="btn_delete" layoutX="376.0" layoutY="14.0" mnemonicParsing="false" onAction="#delete" text="წაშლა" />
-      <Button fx:id="btn_register" layoutX="722.0" layoutY="48.0" mnemonicParsing="false" text="რეგისტრაცია" />
-      <Button fx:id="btn_login" layoutX="721.0" layoutY="14.0" mnemonicParsing="false" text="ავტორიზაცია" />
+      <Button fx:id="btn_register" layoutX="722.0" layoutY="48.0" mnemonicParsing="false" onAction="#register" text="რეგისტრაცია" />
+      <Button fx:id="btn_login" layoutX="721.0" layoutY="14.0" mnemonicParsing="false" onAction="#loginForm" text="ავტორიზაცია" />
       <Button fx:id="btn_get" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#fillTable" text="მონაცემების გამოტანა" />
       <Button fx:id="btn_add" layoutX="174.0" layoutY="14.0" mnemonicParsing="false" onAction="#addNew" text="დამატება" />
       <TableView fx:id="table" layoutX="14.0" layoutY="103.0" prefHeight="410.0" prefWidth="806.0" />
+      <TextField fx:id="txtField_nm" disable="true" layoutX="559.0" layoutY="14.0" promptText="User" />
    </children>
 </AnchorPane>

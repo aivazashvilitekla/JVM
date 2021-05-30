@@ -51,29 +51,36 @@ public class AuthorController extends Controller implements Initializable {
     }
     @FXML
     private void save() {
-        try {
-            Statement st = con.createStatement();
-            String preInsert;
-            if(id>=1){
-                preInsert = "UPDATE author SET firstname=?,birthday=? where id="+id;
-            }else {
-                preInsert="INSERT INTO author (firstname, birthday) VALUES(?, ?)";
+        if(txtField_firstname.getText()!="" & dtPicker.getValue()!=null){
+            try {
+                Statement st = con.createStatement();
+                String preInsert;
+                if(id>=1){
+                    preInsert = "UPDATE author SET firstname=?,birthday=? where id="+id;
+                }else {
+                    preInsert="INSERT INTO author (firstname, birthday) VALUES(?, ?)";
+                }
+                PreparedStatement statement = con.prepareStatement(preInsert);
+                statement.setString(1, txtField_firstname.getText());
+                statement.setString(2, dtPicker.getValue().toString());
+                statement.executeUpdate();
+                Alert a = new Alert(Alert.AlertType.CONFIRMATION);
+                a.setContentText("ჩანაწერი წარმატებით შეინახა");
+                a.setTitle("წარმატება");
+                a.show();
+                Stage stage = (Stage) btn_saveAuthor.getScene().getWindow();
+                stage.close();
+            }catch (SQLException throwables) {
+                Alert a = new Alert(Alert.AlertType.ERROR);
+                a.setContentText("მოხდა შეცდომა");
+                a.show();
+                throwables.printStackTrace();
             }
-            PreparedStatement statement = con.prepareStatement(preInsert);
-            statement.setString(1, txtField_firstname.getText());
-            statement.setString(2, dtPicker.getValue().toString());
-            statement.executeUpdate();
-            Alert a = new Alert(Alert.AlertType.CONFIRMATION);
-            a.setContentText("ჩანაწერი წარმატებით შეინახა");
-            a.setTitle("წარმატება");
-            a.show();
-            Stage stage = (Stage) btn_saveAuthor.getScene().getWindow();
-            stage.close();
-        }catch (SQLException throwables) {
+        }else{
             Alert a = new Alert(Alert.AlertType.ERROR);
-            a.setContentText("მოხდა შეცდომა");
+            a.setContentText("გთხოვთ შეავსეთ ყველა ველი");
             a.show();
-            throwables.printStackTrace();
         }
+
     }
 }
