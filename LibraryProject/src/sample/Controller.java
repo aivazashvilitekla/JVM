@@ -1,10 +1,7 @@
 package sample;
 
-import javafx.beans.binding.BooleanBinding;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -12,8 +9,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import sample.Book;
 
 import java.io.IOException;
 import java.net.URL;
@@ -28,6 +25,7 @@ import java.util.ResourceBundle;
 public class Controller {
     public static int id;
     public static String editable;
+    public static String user;
     Connection con;
     String SQL;
     ResultSet rs;
@@ -41,6 +39,8 @@ public class Controller {
     @FXML
     protected Button btn_delete;
     @FXML
+    protected Label lbl_nm;
+    @FXML
     private TableView<?> table = new TableView<>();
     @FXML
     private void fillTable() {
@@ -49,7 +49,7 @@ public class Controller {
             a.setContentText("გაიარეთ რეგისტრაცია ან ავტორიზაცია მონაცემების სანახავად");
             a.show();
         }else {
-
+            lbl_nm.setText(lbl_nm.getText()+user);
 
         table.getColumns().clear();
         table.getItems().clear();
@@ -253,6 +253,5 @@ public class Controller {
             e.printStackTrace();
         }
     }
-
 
 }

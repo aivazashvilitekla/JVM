@@ -3,10 +3,10 @@ package sample;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TextField;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
@@ -14,6 +14,7 @@ import javax.crypto.Cipher;
 import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.PBEKeySpec;
 import javax.crypto.spec.SecretKeySpec;
+import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -29,7 +30,6 @@ public class Login extends Controller {
     byte[] hash;
     Connection con;
     ResultSet rs;
-    String user;
 
     @FXML
     private TextField txtField_email;
@@ -56,6 +56,7 @@ public class Login extends Controller {
             if(user!=null){
 
                 access="yes";
+
                 Stage stage = (Stage) btn_login.getScene().getWindow();
                 stage.close();
                 Alert a = new Alert(Alert.AlertType.CONFIRMATION);
